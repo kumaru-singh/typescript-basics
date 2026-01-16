@@ -1,0 +1,23 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Instructor_1 = require("./roles/Instructor");
+const Learner_1 = require("./roles/Learner");
+const Admin_1 = require("./roles/Admin");
+const Quiz_1 = require("./content/Quiz");
+const Lesson_1 = require("./content/Lesson");
+const Assignment_1 = require("./content/Assignment");
+const instructor = new Instructor_1.Instructor("Sensei");
+const learner = new Learner_1.Learner("Student");
+const admin = new Admin_1.Admin("Admin");
+const quiz = new Quiz_1.Quiz("TS Basics", "Sensei");
+quiz.addQuestion("What is TypeScript?", instructor);
+quiz.publish();
+// ❌ Compile-time impossible:
+// quiz.addQuestion("Hack", learner);
+const lesson = new Lesson_1.Lesson("OOP", "Sensei", "Intro");
+lesson.editContent("Updated Intro", instructor);
+lesson.publish();
+const assignment = new Assignment_1.Assignment("Homework 1", "Sensei", new Date("2026-02-01"));
+assignment.updateDueDate(new Date("2026-02-10"), instructor);
+assignment.publish();
+console.log("System running correctly");
