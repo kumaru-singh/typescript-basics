@@ -1,3 +1,4 @@
+export { };
 // Implement a PromotionSystem interface with an update method
 
 interface Observer  { 
